@@ -1150,31 +1150,8 @@
                 display: flex;
             }
 
-            /* FIX: Nav container padding tighter on tablets */
-            .nav-container {
-                padding: 0.8rem 1.2rem;
-            }
-
-            /* FIX: Logo shrinks so it doesn't crowd the hamburger */
-            .logo img {
-                height: 44px;
-            }
-
-            .logo-text h1 {
-                font-size: 1.3rem;
-            }
-
-            .logo-text p {
-                font-size: 0.72rem;
-            }
-
-            /* FIX: Hero padding was excessive on mobile */
-            .hero {
-                padding: 3rem 1.5rem 4rem;
-            }
-
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
@@ -1189,19 +1166,13 @@
                 font-size: 2.2rem;
             }
 
-            /* FIX: About heading was 2.8rem with no mobile override */
-            .about-text h2 {
-                font-size: 2rem;
-            }
-
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
 
-            /* FIX: Stats kept 1fr at 968px — bad on tablets. Keep 3-col until phones */
             .stats {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .portfolio-grid {
@@ -1255,43 +1226,9 @@
             }
         }
 
-        @media (max-width: 600px) {
-            /* FIX: Stats now collapse to single column on phones */
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 480px) {
-            /* FIX: Nav container very compact on small phones */
-            .nav-container {
-                padding: 0.75rem 1rem;
-            }
-
-            /* FIX: Logo image smaller, subtitle hidden on very small screens */
-            .logo {
-                gap: 0.6rem;
-            }
-
-            .logo img {
-                height: 36px;
-            }
-
-            .logo-text h1 {
-                font-size: 1.1rem;
-            }
-
-            .logo-text p {
-                display: none;
-            }
-
-            /* FIX: Hero padding and font sizes for small phones */
-            .hero {
-                padding: 2.5rem 1rem 3rem;
-            }
-
             .hero h2 {
-                font-size: 1.75rem;
+                font-size: 2rem;
             }
 
             .hero p {
@@ -1300,20 +1237,6 @@
 
             .section-header h2 {
                 font-size: 1.8rem;
-            }
-
-            /* FIX: About heading further reduced */
-            .about-text h2 {
-                font-size: 1.7rem;
-            }
-
-            /* FIX: CTA section heading was 2.5rem with no mobile override */
-            .cta-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .cta-section p {
-                font-size: 1rem;
             }
 
             .stat-item h3 {
@@ -1666,7 +1589,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
-                    <p><a href="/cdn-cgi/l/email-protection#b2d9c7c6d7d7c1d3d8ddc1dac7d38b8386f2d5dfd3dbde9cd1dddf"><span class="__cf_email__" data-cfemail="3259474657574153585d415a47530b030672555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
+                    <p><a href="mailto:kuteesajoshua914@gmail.com">kuteesajoshua914@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -1691,7 +1614,7 @@
                 <p>Your trusted partner for quality construction, plumbing, electrical, and renovation services in Uganda. 6 years of excellence and counting.</p>
                 <div class="social-links">
                     <a href="https://wa.me/256754181263" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#6d06181908081e0c07021e05180c545c592d0a000c0401430e0200"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:kuteesajoshua914@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+256754181263"><i class="fas fa-phone"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </div>
@@ -1769,11 +1692,13 @@
     src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
     -->
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Preloader — hide on load, or after 2s max (fallback if CDN resources are blocked)
-        const hidePreloader = () => document.querySelector('.preloader').classList.add('hidden');
-        window.addEventListener('load', () => setTimeout(hidePreloader, 500));
-        setTimeout(hidePreloader, 2000);
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.preloader').classList.add('hidden');
+            }, 500);
+        });
 
         // Dynamic Year in Footer
         document.addEventListener('DOMContentLoaded', () => {
@@ -1884,3 +1809,13 @@
         });
 
         // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.mobile-menu') && !e.target.closest('.mobile-nav')) {
+                mobileMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
