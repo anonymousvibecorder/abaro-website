@@ -1770,12 +1770,10 @@
     -->
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Preloader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.preloader').classList.add('hidden');
-            }, 500);
-        });
+        // Preloader — hide on load, or after 2s max (fallback if CDN resources are blocked)
+        const hidePreloader = () => document.querySelector('.preloader').classList.add('hidden');
+        window.addEventListener('load', () => setTimeout(hidePreloader, 500));
+        setTimeout(hidePreloader, 2000);
 
         // Dynamic Year in Footer
         document.addEventListener('DOMContentLoaded', () => {
