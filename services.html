@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Abaro Construction | Construction, Plumbing, Electrical & Renovation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -152,13 +150,38 @@
             color: var(--primary-orange);
         }
 
+        /* Hamburger Menu */
         .mobile-menu {
             display: none;
-            font-size: 1.5rem;
+            flex-direction: column;
+            gap: 5px;
             cursor: pointer;
-            color: var(--primary-blue);
+            padding: 5px;
+            z-index: 1001;
         }
 
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .mobile-menu.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Navigation */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -169,6 +192,18 @@
             padding: 2rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             z-index: 999;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .mobile-nav.active {
@@ -181,7 +216,14 @@
 
         .mobile-nav li {
             margin-bottom: 1.5rem;
+            animation: fadeInUp 0.3s ease both;
         }
+
+        .mobile-nav li:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-nav li:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-nav li:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-nav li:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-nav li:nth-child(5) { animation-delay: 0.5s; }
 
         .mobile-nav a {
             text-decoration: none;
@@ -428,6 +470,22 @@
         .video-section {
             padding: 5rem 2rem;
             background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--primary-orange);
+            font-size: 1.2rem;
         }
 
         .video-grid {
@@ -765,35 +823,35 @@
             color: #9ca3af;
         }
 
-        /* Floating WhatsApp */
+        /* Floating WhatsApp - FIXED POSITIONING */
         .whatsapp-float {
             position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 40px;
-            right: 40px;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #FFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 998;
             text-decoration: none;
             animation: pulse 2s infinite;
             transition: all 0.3s;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.15);
+            transform: scale(1.1);
             animation: none;
         }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
@@ -804,7 +862,7 @@
             }
 
             .mobile-menu {
-                display: block;
+                display: flex;
             }
 
             .page-header h1 {
@@ -826,7 +884,11 @@
 
             .gallery-item:first-child {
                 grid-column: span 1;
-                height: 250px;
+                height: 300px;
+            }
+
+            .gallery-item {
+                height: 280px;
             }
 
             .filter-buttons {
@@ -842,12 +904,24 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-card {
+                height: 350px;
+            }
+
             .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
                 width: 55px;
                 height: 55px;
-                font-size: 28px;
+                font-size: 24px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .service-info h2 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
 
@@ -888,8 +962,10 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div class="mobile-menu" id="mobileMenu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </div>
         </div>
     </nav>
@@ -959,23 +1035,22 @@
                         <li><i class="fas fa-check-circle"></i> Project Management</li>
                         <li><i class="fas fa-check-circle"></i> Quality Assurance & Safety</li>
                     </ul>
-                    <a href="https://wa.me/256740626808?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Construction%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/256754181263?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Construction%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
                 <div class="gallery-grid">
-                    <!-- ADD YOUR CONSTRUCTION IMAGES HERE -->
                     <div class="gallery-item">
-                        <img src="assests/services/construction/house show 2.jpg" alt="Construction Project 1">
+                        <img src="construction-1.jpg" alt="Construction Project 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/construction/IMG-20260410-WA0044.jpg" alt="Construction Project 2">
+                        <img src="construction-2.jpg" alt="Construction Project 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/construction/IMG-20260410-WA0060.jpg" alt="Construction Project 3">
+                        <img src="construction-3.jpg" alt="Construction Project 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/construction/IMG-20260410-WA0043.jpg" alt="Construction Project 4">
+                        <img src="construction-4.jpg" alt="Construction Project 4">
                     </div>
                 </div>
             </div>
@@ -990,11 +1065,10 @@
                 <p>See our work in action</p>
             </div>
             <div class="video-grid">
-                <!-- VIDEO 1 -->
                 <div class="video-item reveal">
                     <div class="video-wrapper">
                         <video controls poster="construction-video-thumb-1.jpg">
-                            <source src="assests/services/videos/video 1.mp4" type="video/mp4">
+                            <source src="construction-video-1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -1003,11 +1077,10 @@
                         <p>Watch how we transform blueprints into beautiful, functional buildings.</p>
                     </div>
                 </div>
-                <!-- VIDEO 2 -->
                 <div class="video-item reveal">
                     <div class="video-wrapper">
                         <video controls poster="construction-video-thumb-2.jpg">
-                            <source src="assests/services/videos/video 2.mp4" type="video/mp4">
+                            <source src="construction-video-2.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -1035,23 +1108,22 @@
                         <li><i class="fas fa-check-circle"></i> Leak Detection & Repair</li>
                         <li><i class="fas fa-check-circle"></i> 24/7 Emergency Services</li>
                     </ul>
-                    <a href="https://wa.me/256740626808?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Plumbing%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/256754181263?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Plumbing%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
                 <div class="gallery-grid">
-                    <!-- ADD YOUR PLUMBING IMAGES HERE -->
                     <div class="gallery-item">
-                        <img src="assests/services/Plumbing/plumber 3.jpg" alt="Plumbing Work 1">
+                        <img src="plumbing-1.jpg" alt="Plumbing Work 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/Plumbing/plumber 2.jpg" alt="Plumbing Work 2">
+                        <img src="plumbing-2.jpg" alt="Plumbing Work 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/Plumbing/plumber 4.jpg" alt="Plumbing Work 3">
+                        <img src="plumbing-3.jpg" alt="Plumbing Work 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/Plumbing/pplumber 3.jpg" alt="Plumbing Work 4">
+                        <img src="plumbing-4.jpg" alt="Plumbing Work 4">
                     </div>
                 </div>
             </div>
@@ -1073,23 +1145,22 @@
                         <li><i class="fas fa-check-circle"></i> Solar Panel Installation</li>
                         <li><i class="fas fa-check-circle"></i> Emergency Electrical Repairs</li>
                     </ul>
-                    <a href="https://wa.me/256740626808?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Electrical%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/256754181263?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Electrical%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
                 <div class="gallery-grid">
-                    <!-- ADD YOUR ELECTRICAL IMAGES HERE -->
                     <div class="gallery-item">
-                        <img src="assests/services/electrical/electrical 1.jpg" alt="Electrical Work 1">
+                        <img src="electrical-1.jpg" alt="Electrical Work 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/electrical/electrical 2.jpg" alt="Electrical Work 2">
+                        <img src="electrical-2.jpg" alt="Electrical Work 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/electrical/electrical 3.jpg" alt="Electrical Work 3">
+                        <img src="electrical-3.jpg" alt="Electrical Work 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/electrical/electrical 4.jpg" alt="Electrical Work 4">
+                        <img src="electrical-4.jpg" alt="Electrical Work 4">
                     </div>
                 </div>
             </div>
@@ -1111,12 +1182,11 @@
                         <li><i class="fas fa-check-circle"></i> Exterior Renovations</li>
                         <li><i class="fas fa-check-circle"></i> Custom Design Solutions</li>
                     </ul>
-                    <a href="https://wa.me/256740626808?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Renovation%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/256754181263?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Renovation%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
                 <div class="gallery-grid">
-                    <!-- ADD YOUR RENOVATION IMAGES HERE -->
                     <div class="gallery-item">
                         <img src="renovation-1.jpg" alt="Renovation Project 1">
                     </div>
@@ -1149,23 +1219,22 @@
                         <li><i class="fas fa-check-circle"></i> Site Plans</li>
                         <li><i class="fas fa-check-circle"></i> Building Permits Documentation</li>
                     </ul>
-                    <a href="https://wa.me/256740626808?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Architectural%20Drawing%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/256754181263?text=Hi%20Abaro%20Construction,%20I'm%20interested%20in%20your%20Architectural%20Drawing%20Services.%20Can%20we%20discuss?" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
                 <div class="gallery-grid">
-                    <!-- ADD YOUR ARCHITECTURAL DRAWING IMAGES HERE -->
                     <div class="gallery-item">
-                        <img src="assests/services/architectural/articial 3.jpeg" alt="Architectural Drawing 1">
+                        <img src="architectural-1.jpg" alt="Architectural Drawing 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/architectural/floor-plan-1.jpg" alt="Architectural Drawing 2">
+                        <img src="architectural-2.jpg" alt="Architectural Drawing 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/architectural/floor-plan-2.jpg" alt="Architectural Drawing 3">
+                        <img src="architectural-3.jpg" alt="Architectural Drawing 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="assests/services/architectural/architectural 4.jpg" alt="Architectural Drawing 4">
+                        <img src="architectural-4.jpg" alt="Architectural Drawing 4">
                     </div>
                 </div>
             </div>
@@ -1188,15 +1257,13 @@
                 <button class="filter-btn" data-filter="architectural">Architectural</button>
             </div>
             <div class="gallery-items">
-                <!-- CONSTRUCTION -->
                 <div class="gallery-card" data-category="construction">
-                    <img src="assests/services/gallery/kalaki.jpeg" alt="Construction Project">
+                    <img src="construction-1.jpg" alt="Construction Project">
                     <div class="gallery-card-overlay">
                         <h3>Construction Project</h3>
                         <p>Residential building</p>
                     </div>
                 </div>
-                <!-- PLUMBING -->
                 <div class="gallery-card" data-category="plumbing">
                     <img src="plumbing-1.jpg" alt="Plumbing Work">
                     <div class="gallery-card-overlay">
@@ -1204,7 +1271,6 @@
                         <p>Modern bathroom setup</p>
                     </div>
                 </div>
-                <!-- ELECTRICAL -->
                 <div class="gallery-card" data-category="electrical">
                     <img src="electrical-1.jpg" alt="Electrical Work">
                     <div class="gallery-card-overlay">
@@ -1212,7 +1278,6 @@
                         <p>Commercial wiring</p>
                     </div>
                 </div>
-                <!-- RENOVATION -->
                 <div class="gallery-card" data-category="renovation">
                     <img src="renovation-1.jpg" alt="Renovation Project">
                     <div class="gallery-card-overlay">
@@ -1220,7 +1285,6 @@
                         <p>Complete remodel</p>
                     </div>
                 </div>
-                <!-- ARCHITECTURAL -->
                 <div class="gallery-card" data-category="architectural">
                     <img src="architectural-1.jpg" alt="Architectural Drawing">
                     <div class="gallery-card-overlay">
@@ -1228,7 +1292,6 @@
                         <p>Modern home layout</p>
                     </div>
                 </div>
-                <!-- CONSTRUCTION -->
                 <div class="gallery-card" data-category="construction">
                     <img src="construction-2.jpg" alt="Construction Project">
                     <div class="gallery-card-overlay">
@@ -1304,7 +1367,7 @@
                 </div>
             </div>
 
-            <!-- Question Form - Sends to WhatsApp -->
+            <!-- Question Form -->
             <div class="question-form reveal">
                 <h3>Still Have Questions?</h3>
                 <p>Send us your question directly via WhatsApp and we'll respond promptly!</p>
@@ -1329,7 +1392,7 @@
     <section class="cta-section">
         <h2>Ready to Start Your Project?</h2>
         <p>Contact us today for a free consultation and quote</p>
-        <a href="https://wa.me/256740626808" class="btn btn-primary" target="_blank">
+        <a href="https://wa.me/256754181263" class="btn btn-primary" target="_blank">
             <i class="fab fa-whatsapp"></i> Get In Touch
         </a>
     </section>
@@ -1351,7 +1414,7 @@
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Lutete, Gayaza Road, Uganda</p>
-                <p><i class="fas fa-phone"></i> +256 740 626 808</p>
+                <p><i class="fas fa-phone"></i> +256 754 181 263</p>
                 <p><i class="fas fa-envelope"></i> kuteesajoshua914@gmail.com</p>
             </div>
             <div class="footer-section">
@@ -1367,7 +1430,7 @@
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/256740626808" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1395,16 +1458,18 @@
             }
         });
 
-        // Mobile menu
-        const mobileMenu = document.querySelector('.mobile-menu');
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
         const mobileNav = document.getElementById('mobileNav');
 
         mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
             mobileNav.classList.toggle('active');
         });
 
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
                 mobileNav.classList.remove('active');
             });
         });
@@ -1431,12 +1496,10 @@
                 const item = question.parentElement;
                 const isActive = item.classList.contains('active');
                 
-                // Close all
                 document.querySelectorAll('.faq-item').forEach(faq => {
                     faq.classList.remove('active');
                 });
                 
-                // Open clicked if it wasn't active
                 if (!isActive) {
                     item.classList.add('active');
                 }
@@ -1446,9 +1509,7 @@
         // Filterable Gallery
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
                 
                 const filter = btn.getAttribute('data-filter');
@@ -1464,20 +1525,17 @@
             });
         });
 
-        // Question Form - Send to WhatsApp
+        // Question Form
         document.getElementById('questionForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
             const name = document.getElementById('userName').value;
             const question = document.getElementById('userQuestion').value;
             
-            // Create WhatsApp message
             const message = `Hi Abaro Construction,%0A%0AMy name is ${encodeURIComponent(name)}.%0A%0AI have a question:%0A${encodeURIComponent(question)}%0A%0APlease respond when you can. Thank you!`;
             
-            // Open WhatsApp with pre-filled message
-            window.open(`https://wa.me/256740626808?text=${message}`, '_blank');
+            window.open(`https://wa.me/256754181263?text=${message}`, '_blank');
             
-            // Reset form
             document.getElementById('questionForm').reset();
         });
 
