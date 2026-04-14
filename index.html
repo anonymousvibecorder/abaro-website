@@ -125,31 +125,22 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            transform: scale(1);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .logo img {
             height: 60px;
             width: auto;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         .logo-text h1 {
             color: var(--primary-blue);
             font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: 1px;
         }
 
         .logo-text p {
             color: var(--primary-orange);
             font-size: 0.85rem;
-            font-weight: 600;
         }
 
         .nav-links {
@@ -164,7 +155,6 @@
             font-weight: 600;
             position: relative;
             transition: color 0.3s;
-            padding: 0.5rem 0;
         }
 
         .nav-links a::after {
@@ -176,7 +166,6 @@
             height: 3px;
             background: var(--primary-orange);
             transition: width 0.3s ease;
-            border-radius: 2px;
         }
 
         .nav-links a:hover::after {
@@ -187,13 +176,14 @@
             color: var(--primary-orange);
         }
 
-        /* Hamburger Menu Animation */
+        /* Hamburger Menu */
         .mobile-menu {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
             padding: 5px;
+            z-index: 1001;
         }
 
         .hamburger-line {
@@ -217,7 +207,7 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Mobile Menu Dropdown */
+        /* Mobile Navigation */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -232,14 +222,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .mobile-nav.active {
@@ -275,7 +259,7 @@
             color: var(--primary-orange);
         }
 
-        /* Hero Section - FIXED */
+        /* Hero Section */
         .hero {
             margin-top: 80px;
             min-height: 90vh;
@@ -288,32 +272,30 @@
             overflow: visible;
         }
 
-        .hero::before {
+        .hero::before, .hero::after {
             content: '';
             position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero::before {
             top: -50%;
             right: -10%;
             width: 600px;
             height: 600px;
             background: rgba(249, 115, 22, 0.1);
-            border-radius: 50%;
             animation: float 6s ease-in-out infinite;
-            z-index: 0;
-            pointer-events: none;
         }
 
         .hero::after {
-            content: '';
-            position: absolute;
             bottom: -30%;
             left: -5%;
             width: 400px;
             height: 400px;
             background: rgba(59, 130, 246, 0.1);
-            border-radius: 50%;
             animation: float 8s ease-in-out infinite reverse;
-            z-index: 0;
-            pointer-events: none;
         }
 
         .hero-content {
@@ -384,27 +366,6 @@
             align-items: center;
             gap: 0.8rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 5;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .btn:hover {
@@ -425,25 +386,13 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes float {
@@ -455,7 +404,6 @@
         .services {
             padding: 6rem 2rem;
             background: var(--light);
-            position: relative;
         }
 
         .container {
@@ -467,7 +415,6 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
-            position: relative;
         }
 
         .section-header h2 {
@@ -512,23 +459,6 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
         }
 
         .service-card:hover {
@@ -548,7 +478,6 @@
             font-size: 2.5rem;
             color: var(--primary-orange);
             transition: all 0.4s ease;
-            position: relative;
         }
 
         .service-card:hover .service-icon {
@@ -583,7 +512,7 @@
             gap: 1rem;
         }
 
-        /* Portfolio Section - EASY TO ADD IMAGES */
+        /* Portfolio Section */
         .portfolio {
             padding: 6rem 2rem;
             background: var(--white);
@@ -638,18 +567,13 @@
             opacity: 1;
         }
 
-        .portfolio-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .portfolio-overlay h3, .portfolio-overlay p {
             transform: translateY(20px);
-            transition: transform 0.4s ease 0.1s;
+            transition: transform 0.4s ease;
         }
 
-        .portfolio-overlay p {
-            transform: translateY(20px);
-            transition: transform 0.4s ease 0.2s;
-            opacity: 0.9;
-        }
+        .portfolio-overlay h3 { margin-bottom: 0.5rem; }
+        .portfolio-overlay p { opacity: 0.9; }
 
         .portfolio-item:hover .portfolio-overlay h3,
         .portfolio-item:hover .portfolio-overlay p {
@@ -728,11 +652,7 @@
             font-weight: 800;
         }
 
-        .stat-item p {
-            font-size: 1rem;
-            margin: 0;
-            opacity: 1;
-        }
+        .stat-item p { font-size: 1rem; margin: 0; opacity: 1; }
 
         .about-image {
             position: relative;
@@ -806,15 +726,8 @@
             font-weight: 700;
         }
 
-        .author-info h4 {
-            color: var(--primary-blue);
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            color: var(--primary-orange);
-            font-size: 0.9rem;
-        }
+        .author-info h4 { color: var(--primary-blue); margin-bottom: 0.2rem; }
+        .author-info p { color: var(--primary-orange); font-size: 0.9rem; }
 
         /* Contact Section */
         .contact {
@@ -870,17 +783,14 @@
             font-size: 1.3rem;
         }
 
-        .contact-card a,
-        .contact-card p {
+        .contact-card a, .contact-card p {
             color: #6b7280;
             text-decoration: none;
             transition: color 0.3s;
             line-height: 1.8;
         }
 
-        .contact-card a:hover {
-            color: var(--primary-orange);
-        }
+        .contact-card a:hover { color: var(--primary-orange); }
 
         /* CTA Section */
         .cta-section {
@@ -900,11 +810,8 @@
             width: 200%;
             height: 200%;
             background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.05) 10px,
-                rgba(255,255,255,0.05) 20px
+                45deg, transparent, transparent 10px,
+                rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px
             );
             animation: move 20s linear infinite;
         }
@@ -921,16 +828,8 @@
             margin: 0 auto;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; }
 
         /* Footer */
         footer {
@@ -954,17 +853,14 @@
             font-size: 1.3rem;
         }
 
-        .footer-section p,
-        .footer-section a {
+        .footer-section p, .footer-section a {
             color: #9ca3af;
             text-decoration: none;
             line-height: 2;
             transition: color 0.3s;
         }
 
-        .footer-section a:hover {
-            color: var(--primary-orange);
-        }
+        .footer-section a:hover { color: var(--primary-orange); }
 
         .social-links {
             display: flex;
@@ -997,7 +893,7 @@
             color: #9ca3af;
         }
 
-        /* Floating WhatsApp Button - FIXED FOR MOBILE */
+        /* Floating WhatsApp - FIXED FOR MOBILE */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -1007,39 +903,26 @@
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #FFF;
             border-radius: 50%;
-            text-align: center;
-            font-size: 28px;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-            z-index: 998;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 998;
             text-decoration: none;
-            animation: pulse 2s infinite, float-whatsapp 3s ease-in-out infinite;
+            animation: pulse 2s infinite;
             transition: all 0.3s;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
             animation: none;
         }
 
         @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        @keyframes float-whatsapp {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         /* Scroll to Top Button */
@@ -1073,19 +956,7 @@
             box-shadow: 0 8px 20px rgba(30, 58, 138, 0.6);
         }
 
-        /* Reveal Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Cookie Consent Banner */
+        /* Cookie Consent */
         #cookieBanner {
             position: fixed;
             bottom: 0;
@@ -1104,20 +975,10 @@
             gap: 1rem;
         }
 
-        #cookieBanner.show {
-            transform: translateY(0);
-        }
+        #cookieBanner.show { transform: translateY(0); }
+        #cookieBanner p { margin: 0; font-size: 0.9rem; max-width: 70%; }
 
-        #cookieBanner p {
-            margin: 0;
-            font-size: 0.9rem;
-            max-width: 70%;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 0.8rem;
-        }
+        .cookie-buttons { display: flex; gap: 0.8rem; }
 
         .cookie-btn {
             background: var(--primary-orange);
@@ -1131,118 +992,48 @@
             transition: all 0.3s ease;
         }
 
-        .cookie-btn.decline {
-            background: transparent;
-            border: 1px solid white;
-        }
+        .cookie-btn.decline { background: transparent; border: 1px solid white; }
+        .cookie-btn:hover { transform: translateY(-2px); }
 
-        .cookie-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design - MOBILE FRIENDLY */
+        /* Responsive Design - MOBILE OPTIMIZED */
         @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .section-header h2 {
-                font-size: 2.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            #cookieBanner {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem;
-            }
-
-            #cookieBanner p {
-                max-width: 100%;
-            }
-
-            .cookie-buttons {
-                width: 100%;
-                justify-content: center;
-            }
+            .nav-links { display: none; }
+            .mobile-menu { display: flex; }
+            
+            .hero h2 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .hero-description { font-size: 1rem; }
+            
+            .section-header h2 { font-size: 2.2rem; }
+            
+            .about-content { grid-template-columns: 1fr; gap: 3rem; }
+            .stats { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+            
+            .cta-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            
+            #cookieBanner { flex-direction: column; text-align: center; padding: 1rem; }
+            #cookieBanner p { max-width: 100%; }
+            .cookie-buttons { width: 100%; justify-content: center; }
         }
 
         @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .stat-item h3 {
-                font-size: 2.5rem;
-            }
-
+            .hero { padding: 4rem 1.5rem 6rem; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .stat-item h3 { font-size: 2.5rem; }
+            
+            /* Bigger images on mobile */
+            .portfolio-item { height: 350px; }
+            
+            /* WhatsApp button safe positioning */
             .whatsapp-float {
                 width: 55px;
                 height: 55px;
@@ -1250,13 +1041,25 @@
                 bottom: 15px;
                 right: 15px;
             }
-
+            
             .scroll-top {
                 bottom: 80px;
                 right: 15px;
                 width: 40px;
                 height: 40px;
             }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -1271,7 +1074,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="logo.jpg" alt="Abaro Construction Logo" loading="lazy">
+                <img src="logo.jpg" alt="Abaro Construction Logo">
                 <div class="logo-text">
                     <h1>ABARO</h1>
                     <p>Engineering & Technical Service</p>
@@ -1325,7 +1128,7 @@
         </div>
     </section>
 
-    <!-- Services Section - CORRECTED ORDER -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header reveal">
@@ -1333,70 +1136,41 @@
                 <p>Comprehensive construction solutions tailored to your needs</p>
             </div>
             <div class="services-grid">
-                <!-- 1. Construction -->
                 <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
                     <h3>Construction</h3>
                     <p>Complete building construction from foundation to finish. Residential and commercial projects with modern techniques and quality materials.</p>
-                    <a href="services.html#construction" class="service-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="services.html#construction" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- 2. Plumbing -->
                 <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-faucet-drip"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-faucet-drip"></i></div>
                     <h3>Plumbing</h3>
                     <p>Professional plumbing services including installation, repairs, maintenance, and emergency services for all property types.</p>
-                    <a href="services.html#plumbing" class="service-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="services.html#plumbing" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- 3. Electrical -->
                 <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Electrical</h3>
                     <p>Certified electrical work including wiring, installations, repairs, safety inspections, and solar panel installations.</p>
-                    <a href="services.html#electrical" class="service-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="services.html#electrical" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- 4. Renovation -->
                 <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
                     <h3>Renovation</h3>
                     <p>Transform your space with expert renovation services. Kitchen, bathroom, interior & exterior remodeling.</p>
-                    <a href="services.html#renovation" class="service-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="services.html#renovation" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- 5. Architectural Drawing (LAST POSITION) -->
                 <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
                     <h3>Architectural Drawing</h3>
                     <p>Professional architectural designs, floor plans, 3D renderings, and technical drawings for your building projects.</p>
-                    <a href="services.html#architectural" class="service-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <a href="services.html#architectural" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section - WITH LAZY LOADING -->
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header reveal">
@@ -1404,81 +1178,34 @@
                 <p>Showcasing excellence in every build</p>
             </div>
             <div class="portfolio-grid">
-                <!-- Portfolio Item 1 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/construction-site.jpg" alt="Construction in Progress" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Active Construction</h3>
-                        <p>Professional building work in progress</p>
-                    </div>
+                    <img src="construction-site.jpg" alt="Construction in Progress">
+                    <div class="portfolio-overlay"><h3>Active Construction</h3><p>Professional building work in progress</p></div>
                 </div>
-                
-                <!-- Portfolio Item 2 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/house-render-1.jpg"Modern Single Story Home" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Residential Design</h3>
-                        <p>Modern single-story home with tile roofing</p>
-                    </div>
+                    <img src="house-render-1.jpg" alt="Modern Single Story Home">
+                    <div class="portfolio-overlay"><h3>Residential Design</h3><p>Modern single-story home with tile roofing</p></div>
                 </div>
-                
-                <!-- Portfolio Item 3 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/house-render-2.jpg"Luxury Two Story Villa" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Luxury Villa</h3>
-                        <p>Two-story residential complex</p>
-                    </div>
+                    <img src="house-render-2.jpg" alt="Luxury Two Story Villa">
+                    <div class="portfolio-overlay"><h3>Luxury Villa</h3><p>Two-story residential complex</p></div>
                 </div>
-                
-                <!-- Portfolio Item 4 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/floor-plan-1.jpg"  alt="Ground Floor Plan" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Architectural Planning</h3>
-                        <p>Detailed floor plans and designs</p>
-                    </div>
+                    <img src="floor-plan-1.jpg" alt="Ground Floor Plan">
+                    <div class="portfolio-overlay"><h3>Architectural Planning</h3><p>Detailed floor plans and designs</p></div>
                 </div>
-                
-                <!-- Portfolio Item 5 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/floor-plan-2.jpg" alt="Technical Floor Plan" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Technical Drawings</h3>
-                        <p>Precision architectural blueprints</p>
-                    </div>
+                    <img src="floor-plan-2.jpg" alt="Technical Floor Plan">
+                    <div class="portfolio-overlay"><h3>Technical Drawings</h3><p>Precision architectural blueprints</p></div>
                 </div>
-                
-                <!-- Portfolio Item 6 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/technician-work.jpg" alt="Technical Installation" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Technical Services</h3>
-                        <p>Expert installation and finishing</p>
-                    </div>
+                    <img src="technician-work.jpg" alt="Technical Installation">
+                    <div class="portfolio-overlay"><h3>Technical Services</h3><p>Expert installation and finishing</p></div>
                 </div>
-                
-                <!-- Portfolio Item 7 -->
                 <div class="portfolio-item reveal">
-                    <img src="assests/images/kakiri.png"  alt="Kakiri Government House" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Kalaki District Local Government Building</h3>
-                        <p>We built Kalaki Government building</p>
-                    </div>
+                    <img src="kakiri.png" alt="Kakiri Government House">
+                    <div class="portfolio-overlay"><h3>Kalaki District Local Government Building</h3><p>We built Kalaki Government building</p></div>
                 </div>
-                
-                <!-- COPY FROM HERE TO ADD MORE IMAGES -->
-                <!--
-                <div class="portfolio-item reveal">
-                    <img src="your-image.jpg" alt="Your Project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Project Title</h3>
-                        <p>Project description</p>
-                    </div>
-                </div>
-                -->
-                <!-- TO HERE -->
-                
             </div>
         </div>
     </section>
@@ -1492,22 +1219,13 @@
                     <p>With 6 years of excellence in Uganda's construction industry, we have built a reputation for delivering exceptional quality, timely project completion, and outstanding customer service.</p>
                     <p>Located in Lutete, Gayaza Road, we serve clients across Uganda with comprehensive construction, plumbing, electrical, and renovation services. Our commitment to value for money ensures you receive the best quality at competitive prices.</p>
                     <div class="stats">
-                        <div class="stat-item" data-target="6">
-                            <h3 class="counter">0</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item" data-target="150">
-                            <h3 class="counter">0</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item" data-target="100">
-                            <h3 class="counter">0</h3>
-                            <p>Client Satisfaction %</p>
-                        </div>
+                        <div class="stat-item" data-target="6"><h3 class="counter">0</h3><p>Years Experience</p></div>
+                        <div class="stat-item" data-target="150"><h3 class="counter">0</h3><p>Projects Completed</p></div>
+                        <div class="stat-item" data-target="100"><h3 class="counter">0</h3><p>Client Satisfaction %</p></div>
                     </div>
                 </div>
                 <div class="about-image reveal">
-                    <img src="logo.jpg" alt="Abaro Construction" loading="lazy">
+                    <img src="logo.jpg" alt="Abaro Construction">
                 </div>
             </div>
         </div>
@@ -1525,30 +1243,21 @@
                     <p class="testimonial-text">Abaro Construction transformed our vision into reality. Their attention to detail and professionalism exceeded our expectations. Highly recommended!</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JM</div>
-                        <div class="author-info">
-                            <h4>John Mukasa</h4>
-                            <p>Homeowner, Kampala</p>
-                        </div>
+                        <div class="author-info"><h4>John Mukasa</h4><p>Homeowner, Kampala</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal">
                     <p class="testimonial-text">Excellent electrical work on our commercial building. The team was professional, timely, and delivered quality work within budget.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SN</div>
-                        <div class="author-info">
-                            <h4>Sarah Nakato</h4>
-                            <p>Business Owner</p>
-                        </div>
+                        <div class="author-info"><h4>Sarah Nakato</h4><p>Business Owner</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal">
                     <p class="testimonial-text">Best plumbing services in Uganda! They fixed our complex plumbing issue quickly and professionally. Great value for money.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">DO</div>
-                        <div class="author-info">
-                            <h4>David Ochieng</h4>
-                            <p>Property Manager</p>
-                        </div>
+                        <div class="author-info"><h4>David Ochieng</h4><p>Property Manager</p></div>
                     </div>
                 </div>
             </div>
@@ -1564,30 +1273,22 @@
             </div>
             <div class="contact-grid">
                 <div class="contact-card reveal">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <h3>Our Location</h3>
                     <p>Lutete, Gayaza Road<br>Kampala, Uganda</p>
                 </div>
                 <div class="contact-card reveal">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                     <h3>Phone</h3>
                     <p><a href="tel:+256754181263">+256 754 181 263</a></p>
                 </div>
                 <div class="contact-card reveal">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                     <h3>WhatsApp</h3>
                     <p><a href="https://wa.me/256754181263" target="_blank">+256 754 181 263</a></p>
                 </div>
                 <div class="contact-card reveal">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <h3>Email</h3>
                     <p><a href="mailto:kuteesajoshua914@gmail.com">kuteesajoshua914@gmail.com</a></p>
                 </div>
@@ -1648,17 +1349,17 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button - FIXED POSITION -->
+    <!-- Floating WhatsApp -->
     <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top -->
     <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Cookie Consent Banner -->
+    <!-- Cookie Consent -->
     <div id="cookieBanner">
         <p>We use cookies to improve your experience. By continuing, you agree to our use of cookies.</p>
         <div class="cookie-buttons">
@@ -1667,57 +1368,25 @@
         </div>
     </div>
 
-    <!-- Google Analytics & Facebook Pixel (Replace IDs) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    
-    <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-    -->
-
     <script>
         // Preloader
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.preloader').classList.add('hidden');
-            }, 500);
+            setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 500);
         });
 
-        // Dynamic Year in Footer
+        // Dynamic Year & Cookie Banner
         document.addEventListener('DOMContentLoaded', () => {
             const currentYear = new Date().getFullYear();
-            const copyrightText = document.getElementById('copyrightText');
-            copyrightText.innerHTML = `&copy; ${currentYear} Abaro Construction. All Rights Reserved. | Value for Money`;
-            
-            // Show cookie banner if not already accepted
+            document.getElementById('copyrightText').innerHTML = `&copy; ${currentYear} Abaro Construction. All Rights Reserved. | Value for Money`;
             if(!localStorage.getItem('cookieConsent')) {
                 setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1500);
             }
         });
 
-        // Cookie Consent Functions
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'accepted');
             document.getElementById('cookieBanner').classList.remove('show');
         }
-
         function declineCookies() {
             localStorage.setItem('cookieConsent', 'declined');
             document.getElementById('cookieBanner').classList.remove('show');
@@ -1727,7 +1396,6 @@
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             const scrollTop = document.querySelector('.scroll-top');
-            
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
                 scrollTop.classList.add('visible');
@@ -1740,13 +1408,11 @@
         // Counter Animation
         const counters = document.querySelectorAll('.counter');
         const speed = 200;
-
         const animateCounters = () => {
             counters.forEach(counter => {
                 const target = +counter.parentElement.getAttribute('data-target');
                 const count = +counter.innerText;
                 const inc = target / speed;
-
                 if (count < target) {
                     counter.innerText = Math.ceil(count + inc);
                     setTimeout(animateCounters, 20);
@@ -1756,59 +1422,40 @@
             });
         };
 
-        // Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -100px 0px"
-        };
-
+        // Intersection Observer
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
-                    // Trigger counter animation when stats section is visible
-                    if (entry.target.querySelector('.counter')) {
-                        animateCounters();
-                    }
+                    if (entry.target.querySelector('.counter')) animateCounters();
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Smooth scrolling for navigation links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Mobile menu toggle WITH ANIMATION
+        // Mobile menu
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileNav = document.getElementById('mobileNav');
-
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             mobileNav.classList.toggle('active');
         });
-
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 mobileNav.classList.remove('active');
             });
         });
-
-        // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.mobile-menu') && !e.target.closest('.mobile-nav')) {
                 mobileMenu.classList.remove('active');
@@ -1816,6 +1463,5 @@
             }
         });
     </script>
-
 </body>
 </html>
