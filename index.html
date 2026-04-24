@@ -74,7 +74,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .preloader.hidden {
@@ -88,7 +88,7 @@
             border: 5px solid var(--light);
             border-top: 5px solid var(--primary-orange);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         @keyframes spin {
@@ -105,7 +105,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav.scrolled {
@@ -126,7 +126,7 @@
             align-items: center;
             gap: 1rem;
             transform: scale(1);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .logo:hover {
@@ -163,7 +163,7 @@
             color: var(--dark);
             font-weight: 600;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0.5rem 0;
         }
 
@@ -175,7 +175,7 @@
             width: 0;
             height: 3px;
             background: var(--primary-orange);
-            transition: width 0.3s ease;
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             border-radius: 2px;
         }
 
@@ -201,7 +201,7 @@
             height: 3px;
             background: var(--primary-blue);
             border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .mobile-menu.active .hamburger-line:nth-child(1) {
@@ -228,7 +228,7 @@
             padding: 2rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             z-index: 999;
-            animation: slideDown 0.3s ease;
+            animation: slideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideDown {
@@ -252,14 +252,14 @@
 
         .mobile-nav li {
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.3s ease both;
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         .mobile-nav li:nth-child(1) { animation-delay: 0.1s; }
-        .mobile-nav li:nth-child(2) { animation-delay: 0.2s; }
-        .mobile-nav li:nth-child(3) { animation-delay: 0.3s; }
-        .mobile-nav li:nth-child(4) { animation-delay: 0.4s; }
-        .mobile-nav li:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-nav li:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-nav li:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-nav li:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-nav li:nth-child(5) { animation-delay: 0.3s; }
 
         .mobile-nav a {
             text-decoration: none;
@@ -275,7 +275,7 @@
             color: var(--primary-orange);
         }
 
-        /* Hero Section - FIXED */
+        /* Hero Section */
         .hero {
             margin-top: 80px;
             min-height: 90vh;
@@ -297,7 +297,7 @@
             height: 600px;
             background: rgba(249, 115, 22, 0.1);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             z-index: 0;
             pointer-events: none;
         }
@@ -311,7 +311,7 @@
             height: 400px;
             background: rgba(59, 130, 246, 0.1);
             border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
+            animation: float 10s cubic-bezier(0.4, 0, 0.2, 1) infinite reverse;
             z-index: 0;
             pointer-events: none;
         }
@@ -333,7 +333,7 @@
             border-radius: 50px;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            animation: fadeInDown 1s ease;
+            animation: fadeInDown 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
         }
 
@@ -341,7 +341,7 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            animation: fadeInUp 1s ease 0.2s both;
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
@@ -350,7 +350,7 @@
             margin-bottom: 2rem;
             color: var(--primary-orange);
             font-weight: 600;
-            animation: fadeInUp 1s ease 0.4s both;
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
         }
 
         .hero-description {
@@ -358,7 +358,7 @@
             margin-bottom: 3rem;
             font-size: 1.1rem;
             line-height: 1.8;
-            animation: fadeInUp 1s ease 0.6s both;
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
             opacity: 0.95;
         }
 
@@ -366,7 +366,7 @@
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.8s both;
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
             position: relative;
             z-index: 20;
             margin-top: 1rem;
@@ -383,7 +383,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
             z-index: 5;
@@ -399,7 +399,7 @@
             border-radius: 50%;
             background: rgba(255,255,255,0.3);
             transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn:hover::before {
@@ -427,7 +427,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -438,7 +438,7 @@
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-40px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -448,7 +448,7 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
         }
 
         /* Services Section */
@@ -509,7 +509,7 @@
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -524,7 +524,8 @@
             height: 5px;
             background: var(--gradient);
             transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .service-card:hover::before {
@@ -533,28 +534,28 @@
 
         .service-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .service-icon {
             width: 90px;
             height: 90px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            background: linear-gradient(135deg, rgb(198, 205, 218) 0%, #e5e7eb 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
             color: var(--primary-orange);
-            transition: all 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
         }
 
         .service-card:hover .service-icon {
             background: var(--gradient);
             color: var(--white);
-            transform: rotateY(360deg);
+            transform: rotateY(360deg) scale(1.1);
         }
 
         .service-card h3 {
@@ -576,14 +577,14 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: gap 0.3s ease;
+            transition: gap 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .service-link:hover {
             gap: 1rem;
         }
 
-        /* Portfolio Section - EASY TO ADD IMAGES */
+        /* Portfolio Section */
         .portfolio {
             padding: 6rem 2rem;
             background: var(--white);
@@ -602,18 +603,18 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             height: 400px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
         }
 
         .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .portfolio-item:hover img {
@@ -628,8 +629,8 @@
             background: linear-gradient(to top, rgba(30, 58, 138, 0.95), transparent);
             color: var(--white);
             padding: 3rem 2rem 2rem;
-            transform: translateY(20%);
-            transition: all 0.4s ease;
+            transform: translateY(30%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
         }
 
@@ -642,18 +643,46 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
             transform: translateY(20px);
-            transition: transform 0.4s ease 0.1s;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
         }
 
         .portfolio-overlay p {
             transform: translateY(20px);
-            transition: transform 0.4s ease 0.2s;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
             opacity: 0.9;
         }
 
         .portfolio-item:hover .portfolio-overlay h3,
         .portfolio-item:hover .portfolio-overlay p {
             transform: translateY(0);
+        }
+
+        /* Zoom Icon Indicator */
+        .portfolio-item::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 3rem;
+            color: white;
+            background: rgba(30, 58, 138, 0.8);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 5;
+        }
+
+        .portfolio-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
 
         /* About Section */
@@ -712,11 +741,11 @@
             border-radius: 15px;
             text-align: center;
             border: 2px solid rgba(255,255,255,0.2);
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .stat-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.05);
             background: rgba(255,255,255,0.2);
             border-color: var(--primary-orange);
         }
@@ -736,7 +765,7 @@
 
         .about-image {
             position: relative;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         .about-image img {
@@ -763,7 +792,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             position: relative;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .testimonial-card:hover {
@@ -834,7 +863,7 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 2px solid transparent;
         }
 
@@ -855,13 +884,13 @@
             justify-content: center;
             font-size: 2rem;
             color: var(--primary-orange);
-            transition: all 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .contact-card:hover .contact-icon {
             background: var(--gradient);
             color: var(--white);
-            transform: rotateY(360deg);
+            transform: rotateY(360deg) scale(1.1);
         }
 
         .contact-card h3 {
@@ -874,7 +903,7 @@
         .contact-card p {
             color: #6b7280;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             line-height: 1.8;
         }
 
@@ -906,7 +935,7 @@
                 rgba(255,255,255,0.05) 10px,
                 rgba(255,255,255,0.05) 20px
             );
-            animation: move 20s linear infinite;
+            animation: move 30s linear infinite;
         }
 
         @keyframes move {
@@ -959,7 +988,7 @@
             color: #9ca3af;
             text-decoration: none;
             line-height: 2;
-            transition: color 0.3s;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .footer-section a:hover {
@@ -982,12 +1011,12 @@
             justify-content: center;
             color: var(--white);
             font-size: 1.2rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .social-links a:hover {
             background: var(--primary-orange);
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(10deg);
         }
 
         .footer-bottom {
@@ -997,7 +1026,7 @@
             color: #9ca3af;
         }
 
-        /* Floating WhatsApp Button - FIXED FOR MOBILE */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -1015,13 +1044,13 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            animation: pulse 2s infinite, float-whatsapp 3s ease-in-out infinite;
-            transition: all 0.3s;
+            animation: pulse 2s infinite, float-whatsapp 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+            transform: scale(1.15);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
             animation: none;
         }
 
@@ -1058,9 +1087,11 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             z-index: 997;
             box-shadow: 0 5px 15px rgba(30, 58, 138, 0.4);
+            border: none;
+            font-size: 1.2rem;
         }
 
         .scroll-top.visible {
@@ -1069,20 +1100,90 @@
         }
 
         .scroll-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.6);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.6);
         }
 
         /* Reveal Animation Classes */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(0px);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            transform: scale(0.8) translateY(50px);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: rotate(90deg) scale(1.1);
         }
 
         /* Cookie Consent Banner */
@@ -1099,7 +1200,7 @@
             align-items: center;
             z-index: 9999;
             transform: translateY(100%);
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             flex-wrap: wrap;
             gap: 1rem;
         }
@@ -1128,7 +1229,7 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .cookie-btn.decline {
@@ -1140,7 +1241,7 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive Design - MOBILE FRIENDLY */
+        /* Responsive Design */
         @media (max-width: 968px) {
             .nav-links {
                 display: none;
@@ -1223,6 +1324,15 @@
             .cookie-buttons {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .lightbox-content {
+                max-width: 95vw;
+            }
+
+            .lightbox-image {
+                max-width: 95vw;
+                max-height: 80vh;
             }
         }
 
@@ -1325,7 +1435,7 @@
         </div>
     </section>
 
-    <!-- Services Section - CORRECTED ORDER -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header reveal">
@@ -1363,7 +1473,7 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Electrical</h3>
-                    <p>Certified electrical work including wiring, installations, repairs, safety inspections, and solar panel installations.</p>
+                    <p>Certified electrical professionals providing safe, reliable solutions for homes and businesses. From installations to repairs.</p>
                     <a href="services.html#electrical" class="service-link">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
@@ -1375,19 +1485,19 @@
                         <i class="fas fa-paint-roller"></i>
                     </div>
                     <h3>Renovation</h3>
-                    <p>Transform your space with expert renovation services. Kitchen, bathroom, interior & exterior remodeling.</p>
+                    <p>Transform your space with our expert renovation services. Kitchen, bathroom, or complete home makeovers.</p>
                     <a href="services.html#renovation" class="service-link">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
-                <!-- 5. Architectural Drawing (LAST POSITION) -->
+                <!-- 5. Architectural Drawing -->
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
                     <h3>Architectural Drawing</h3>
-                    <p>Professional architectural designs, floor plans, 3D renderings, and technical drawings for your building projects.</p>
+                    <p>Professional architectural designs and technical drawings. From floor plans to 3D visualizations for your dream project.</p>
                     <a href="services.html#architectural" class="service-link">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
@@ -1396,89 +1506,56 @@
         </div>
     </section>
 
-    <!-- Portfolio Section - WITH LAZY LOADING -->
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Our Projects</h2>
-                <p>Showcasing excellence in every build</p>
+                <h2>Our Portfolio</h2>
+                <p>Explore our completed projects across Uganda</p>
             </div>
             <div class="portfolio-grid">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/construction-site.jpg" alt="Construction in Progress" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/construction/projectshowcase.jpg">
+                    <img src="assests/services/construction/projectshowcase.jpg" alt="Construction Project 1" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Active Construction</h3>
-                        <p>Professional building work in progress</p>
+                        <h3>Modern Residential Home</h3>
+                        <p>Complete construction project in Kampala</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/house-render-1.jpg"Modern Single Story Home" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/construction/roofing.jpg">
+                    <img src="assests/services/construction/roofing.jpg" alt="Construction Project 2" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Residential Design</h3>
-                        <p>Modern single-story home with tile roofing</p>
+                        <h3>Roofing Installation</h3>
+                        <p>Professional roofing solutions</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/house-render-2.jpg"Luxury Two Story Villa" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/construction/IMG-20260410-WA0044.jpg">
+                    <img src="assests/services/construction/IMG-20260410-WA0044.jpg" alt="Construction Project 3" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Luxury Villa</h3>
-                        <p>Two-story residential complex</p>
+                        <h3>Commercial Building</h3>
+                        <p>Multi-story construction project</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 4 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/floor-plan-1.jpg"  alt="Ground Floor Plan" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/construction/house show.jpg">
+                    <img src="assests/services/construction/house show.jpg" alt="Construction Project 4" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Architectural Planning</h3>
-                        <p>Detailed floor plans and designs</p>
+                        <h3>House Showcase</h3>
+                        <p>Residential construction excellence</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 5 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/floor-plan-2.jpg" alt="Technical Floor Plan" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/Plumbing/plumber 1.jpeg">
+                    <img src="assests/services/Plumbing/plumber 1.jpeg" alt="Plumbing Project 1" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Technical Drawings</h3>
-                        <p>Precision architectural blueprints</p>
+                        <h3>Plumbing Installation</h3>
+                        <p>Complete plumbing system setup</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 6 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/technician-work.jpg" alt="Technical Installation" loading="lazy">
+                <div class="portfolio-item reveal" data-src="assests/services/electrical/electrical 1.jpg">
+                    <img src="assests/services/electrical/electrical 1.jpg" alt="Electrical Project 1" loading="lazy">
                     <div class="portfolio-overlay">
-                        <h3>Technical Services</h3>
-                        <p>Expert installation and finishing</p>
+                        <h3>Electrical Wiring</h3>
+                        <p>Safe and professional electrical work</p>
                     </div>
                 </div>
-                
-                <!-- Portfolio Item 7 -->
-                <div class="portfolio-item reveal">
-                    <img src="assests/images/kakiri.png"  alt="Kakiri Government House" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Kalaki District Local Government Building</h3>
-                        <p>We built Kalaki Government building</p>
-                    </div>
-                </div>
-                
-                <!-- COPY FROM HERE TO ADD MORE IMAGES -->
-                <!--
-                <div class="portfolio-item reveal">
-                    <img src="your-image.jpg" alt="Your Project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Project Title</h3>
-                        <p>Project description</p>
-                    </div>
-                </div>
-                -->
-                <!-- TO HERE -->
-                
             </div>
         </div>
     </section>
@@ -1488,26 +1565,26 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text reveal">
-                    <h2>Why Choose Abaro Construction?</h2>
-                    <p>With 6 years of excellence in Uganda's construction industry, we have built a reputation for delivering exceptional quality, timely project completion, and outstanding customer service.</p>
-                    <p>Located in Lutete, Gayaza Road, we serve clients across Uganda with comprehensive construction, plumbing, electrical, and renovation services. Our commitment to value for money ensures you receive the best quality at competitive prices.</p>
+                    <h2>Building Excellence Since 2018</h2>
+                    <p>Abaro Construction has been Uganda's trusted construction partner for over 6 years. We deliver exceptional quality, innovative solutions, and unmatched value for money on every project.</p>
+                    <p>Our team of skilled professionals brings expertise in construction, plumbing, electrical work, and renovation services. From concept to completion, we ensure every detail meets the highest standards.</p>
                     <div class="stats">
-                        <div class="stat-item" data-target="6">
-                            <h3 class="counter">0</h3>
+                        <div class="stat-item">
+                            <h3>6+</h3>
                             <p>Years Experience</p>
                         </div>
-                        <div class="stat-item" data-target="150">
-                            <h3 class="counter">0</h3>
+                        <div class="stat-item">
+                            <h3>200+</h3>
                             <p>Projects Completed</p>
                         </div>
-                        <div class="stat-item" data-target="100">
-                            <h3 class="counter">0</h3>
-                            <p>Client Satisfaction %</p>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image reveal">
-                    <img src="logo.jpg" alt="Abaro Construction" loading="lazy">
+                    <img src="assests/services/construction/projectshowcase.jpg" alt="About Abaro Construction" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1518,35 +1595,35 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>What Our Clients Say</h2>
-                <p>Trusted by homeowners and businesses across Uganda</p>
+                <p>Real feedback from satisfied customers</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card reveal">
                     <p class="testimonial-text">Abaro Construction transformed our vision into reality. Their attention to detail and professionalism exceeded our expectations. Highly recommended!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">JM</div>
+                        <div class="author-avatar">JK</div>
                         <div class="author-info">
-                            <h4>John Mukasa</h4>
+                            <h4>John K.</h4>
                             <p>Homeowner, Kampala</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal">
-                    <p class="testimonial-text">Excellent electrical work on our commercial building. The team was professional, timely, and delivered quality work within budget.</p>
+                    <p class="testimonial-text">Professional team, quality work, and fair pricing. They completed our office renovation on time and within budget. Great experience!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SN</div>
+                        <div class="author-avatar">SM</div>
                         <div class="author-info">
-                            <h4>Sarah Nakato</h4>
-                            <p>Business Owner</p>
+                            <h4>Sarah M.</h4>
+                            <p>Business Owner, Gayaza</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal">
-                    <p class="testimonial-text">Best plumbing services in Uganda! They fixed our complex plumbing issue quickly and professionally. Great value for money.</p>
+                    <p class="testimonial-text">The plumbing work was done perfectly. Fast response time and excellent after-service support. Will definitely use them again!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">DO</div>
+                        <div class="author-avatar">PN</div>
                         <div class="author-info">
-                            <h4>David Ochieng</h4>
+                            <h4>Peter N.</h4>
                             <p>Property Manager</p>
                         </div>
                     </div>
@@ -1559,37 +1636,37 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Get In Touch</h2>
-                <p>Ready to start your project? Contact us today</p>
+                <h2>Contact Us</h2>
+                <p>Get in touch for a free consultation</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <h3>Our Location</h3>
-                    <p>Lutete, Gayaza Road<br>Kampala, Uganda</p>
+                    <h3>Location</h3>
+                    <p>Gayaza Road, Kampala<br>Uganda</p>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h3>Phone</h3>
-                    <p><a href="tel:+256754181263">+256 754 181 263</a></p>
+                    <a href="tel:+256754181263">+256 754 181 263</a>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/256754181263" target="_blank">+256 754 181 263</a></p>
+                    <a href="https://wa.me/256754181263" target="_blank">+256 754 181 263</a>
                 </div>
                 <div class="contact-card reveal">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
-                    <p><a href="mailto:kuteesajoshua914@gmail.com">kuteesajoshua914@gmail.com</a></p>
+                    <a href="mailto:info@abaroconstruction.com">info@abaroconstruction.com</a>
                 </div>
             </div>
         </div>
@@ -1598,10 +1675,10 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready to Build Your Dream?</h2>
-            <p>Let's discuss your project and bring your vision to life with our expert team.</p>
-            <a href="https://wa.me/256754181263" class="btn btn-secondary" target="_blank">
-                <i class="fab fa-whatsapp"></i> Get In Touch Now
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today for a free consultation and quote. Let's build something amazing together!</p>
+            <a href="https://wa.me/256754181263" class="btn btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Get Free Quote
             </a>
         </div>
     </section>
@@ -1610,22 +1687,14 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About Abaro</h3>
-                <p>Your trusted partner for quality construction, plumbing, electrical, and renovation services in Uganda. 6 years of excellence and counting.</p>
+                <h3>About Abaro Construction</h3>
+                <p>Uganda's trusted construction partner delivering exceptional quality, innovative solutions, and unmatched value for money since 2018.</p>
                 <div class="social-links">
-                    <a href="https://wa.me/256754181263" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:kuteesajoshua914@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+256754181263"><i class="fas fa-phone"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="#home">Home</a></p>
-                <p><a href="#services">Services</a></p>
-                <p><a href="#portfolio">Portfolio</a></p>
-                <p><a href="#about">About Us</a></p>
-                <p><a href="#contact">Contact</a></p>
             </div>
             <div class="footer-section">
                 <h3>Our Services</h3>
@@ -1636,150 +1705,189 @@
                 <p><a href="services.html#architectural">Architectural Drawing</a></p>
             </div>
             <div class="footer-section">
-                <h3>Business Hours</h3>
-                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-                <p>Emergency Services Available</p>
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#portfolio">Portfolio</a></p>
+                <p><a href="#about">About Us</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Gayaza Road, Kampala</p>
+                <p><i class="fas fa-phone"></i> +256 754 181 263</p>
+                <p><i class="fas fa-envelope"></i> info@abaroconstruction.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p id="copyrightText">&copy; 2024 Abaro Construction. All Rights Reserved. | Value for Money</p>
+            <p>&copy; 2024 Abaro Construction. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button - FIXED POSITION -->
-    <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Scroll to Top Button -->
-    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookieBanner">
-        <p>We use cookies to improve your experience. By continuing, you agree to our use of cookies.</p>
-        <div class="cookie-buttons">
-            <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
-            <button class="cookie-btn decline" onclick="declineCookies()">Decline</button>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Full size image" class="lightbox-image" id="lightboxImage">
         </div>
     </div>
 
-    <!-- Google Analytics & Facebook Pixel (Replace IDs) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    
-    <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-    -->
+    <!-- Cookie Banner -->
+    <div id="cookieBanner">
+        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn" id="acceptCookies">Accept</button>
+            <button class="cookie-btn decline" id="declineCookies">Decline</button>
+        </div>
+    </div>
 
     <script>
         // Preloader
         window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
             setTimeout(() => {
-                document.querySelector('.preloader').classList.add('hidden');
+                preloader.classList.add('hidden');
             }, 500);
         });
 
-        // Dynamic Year in Footer
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentYear = new Date().getFullYear();
-            const copyrightText = document.getElementById('copyrightText');
-            copyrightText.innerHTML = `&copy; ${currentYear} Abaro Construction. All Rights Reserved. | Value for Money`;
-            
-            // Show cookie banner if not already accepted
-            if(!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1500);
-            }
-        });
-
-        // Cookie Consent Functions
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookieBanner').classList.remove('show');
-        }
-
-        function declineCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            document.getElementById('cookieBanner').classList.remove('show');
-        }
-
         // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const scrollTop = document.querySelector('.scroll-top');
-            
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
-                scrollTop.classList.add('visible');
             } else {
                 navbar.classList.remove('scrolled');
-                scrollTop.classList.remove('visible');
             }
         });
 
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
 
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.parentElement.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / speed;
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 20);
-                } else {
-                    counter.innerText = target + (target === 100 ? '%' : '+');
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Reveal on scroll animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
                 }
             });
         };
 
-        // Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -100px 0px"
-        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Run on load
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    
-                    // Trigger counter animation when stats section is visible
-                    if (entry.target.querySelector('.counter')) {
-                        animateCounters();
-                    }
-                }
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        // Portfolio items
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImage.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
-        }, observerOptions);
+        });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
 
-        // Smooth scrolling for navigation links
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cookie banner
+        const cookieBanner = document.getElementById('cookieBanner');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+
+        // Show cookie banner after 2 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.classList.add('show');
+            }
+        }, 2000);
+
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.remove('show');
+        });
+
+        declineCookies.addEventListener('click', () => {
+            cookieBanner.classList.remove('show');
+        });
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1790,32 +1898,6 @@
                 }
             });
         });
-
-        // Mobile menu toggle WITH ANIMATION
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileNav = document.getElementById('mobileNav');
-
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.mobile-menu') && !e.target.closest('.mobile-nav')) {
-                mobileMenu.classList.remove('active');
-                mobileNav.classList.remove('active');
-            }
-        });
     </script>
-
 </body>
 </html>

@@ -46,7 +46,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .preloader.hidden {
@@ -60,7 +60,7 @@
             border: 5px solid var(--light);
             border-top: 5px solid var(--primary-orange);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         @keyframes spin {
@@ -77,7 +77,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav.scrolled {
@@ -97,6 +97,11 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .logo img {
@@ -126,7 +131,7 @@
             color: var(--dark);
             font-weight: 600;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a::after {
@@ -137,7 +142,7 @@
             width: 0;
             height: 3px;
             background: var(--primary-orange);
-            transition: width 0.3s ease;
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .nav-links a:hover::after,
@@ -165,7 +170,7 @@
             height: 3px;
             background: var(--primary-blue);
             border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .mobile-menu.active .hamburger-line:nth-child(1) {
@@ -192,7 +197,7 @@
             padding: 2rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             z-index: 999;
-            animation: slideDown 0.3s ease;
+            animation: slideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideDown {
@@ -216,14 +221,14 @@
 
         .mobile-nav li {
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.3s ease both;
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         .mobile-nav li:nth-child(1) { animation-delay: 0.1s; }
-        .mobile-nav li:nth-child(2) { animation-delay: 0.2s; }
-        .mobile-nav li:nth-child(3) { animation-delay: 0.3s; }
-        .mobile-nav li:nth-child(4) { animation-delay: 0.4s; }
-        .mobile-nav li:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-nav li:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-nav li:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-nav li:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-nav li:nth-child(5) { animation-delay: 0.3s; }
 
         .mobile-nav a {
             text-decoration: none;
@@ -258,6 +263,12 @@
             width: 100%;
             height: 100%;
             background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
         }
 
         .page-header h1 {
@@ -265,7 +276,7 @@
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
-            animation: fadeInDown 1s ease;
+            animation: fadeInDown 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .page-header p {
@@ -273,13 +284,13 @@
             opacity: 0.95;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease 0.3s both;
+            animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-40px);
             }
             to {
                 opacity: 1;
@@ -290,7 +301,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -324,21 +335,45 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             text-decoration: none;
             color: var(--dark);
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-overview-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-overview-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .service-overview-card i {
             font-size: 2.5rem;
             color: var(--primary-orange);
             margin-bottom: 1rem;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .service-overview-card:hover i {
+            transform: scale(1.2) rotateY(360deg);
         }
 
         .service-overview-card h3 {
@@ -406,12 +441,22 @@
             align-items: center;
             gap: 1rem;
             font-size: 1.05rem;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .service-features li:hover {
+            transform: translateX(10px);
         }
 
         .service-features li i {
             color: var(--primary-orange);
             font-size: 1.2rem;
             min-width: 20px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .service-features li:hover i {
+            transform: scale(1.3);
         }
 
         .whatsapp-btn {
@@ -425,13 +470,13 @@
             text-decoration: none;
             font-weight: 600;
             margin-top: 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
 
         /* Gallery Grid */
@@ -448,11 +493,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             height: 250px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .gallery-item:hover {
-            transform: scale(1.03);
+            transform: scale(1.03) translateY(-5px);
         }
 
         .gallery-item:first-child {
@@ -464,6 +509,39 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Zoom Icon Overlay */
+        .gallery-item::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2rem;
+            color: white;
+            background: rgba(30, 58, 138, 0.85);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 5;
+        }
+
+        .gallery-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
 
         /* Video Section */
@@ -500,6 +578,12 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .video-wrapper {
@@ -550,13 +634,15 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Poppins', sans-serif;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             background: var(--primary-blue);
             color: var(--white);
+            transform: translateY(-3px);
         }
 
         .gallery-items {
@@ -571,7 +657,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             height: 300px;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .gallery-card.hidden {
@@ -582,6 +668,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
         }
 
         .gallery-card-overlay {
@@ -593,7 +684,7 @@
             color: var(--white);
             padding: 2rem 1.5rem 1.5rem;
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .gallery-card:hover .gallery-card-overlay {
@@ -617,6 +708,11 @@
             margin-bottom: 1rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
         .faq-question {
@@ -625,7 +721,7 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-question:hover {
@@ -639,7 +735,7 @@
 
         .faq-question i {
             color: var(--primary-orange);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .faq-item.active .faq-question i {
@@ -650,7 +746,7 @@
             padding: 0 2rem;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-item.active .faq-answer {
@@ -702,13 +798,14 @@
             border-radius: 10px;
             font-size: 1rem;
             font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-orange);
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
         }
 
         .form-group textarea {
@@ -730,14 +827,14 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-family: 'Poppins', sans-serif;
         }
 
         .submit-btn:hover {
             background: #128c7e;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
         }
 
         /* CTA Section */
@@ -746,6 +843,35 @@
             background: linear-gradient(135deg, var(--primary-orange) 0%, #ea580c 100%);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: move 30s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section h2 {
@@ -770,11 +896,11 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
@@ -809,7 +935,7 @@
             color: #9ca3af;
             text-decoration: none;
             line-height: 2;
-            transition: color 0.3s;
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .footer-section a:hover {
@@ -823,7 +949,7 @@
             color: #9ca3af;
         }
 
-        /* Floating WhatsApp - FIXED POSITIONING */
+        /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -840,19 +966,158 @@
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
             z-index: 998;
             text-decoration: none;
-            animation: pulse 2s infinite;
-            transition: all 0.3s;
+            animation: pulse 2s infinite, float-whatsapp 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
             animation: none;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
         }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes float-whatsapp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Lightbox Styles - Enhanced with Navigation */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(0px);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            transform: scale(0.8) translateY(50px);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Navigation Arrows */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-50%) scale(1.15);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        /* Image Counter */
+        .lightbox-counter {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
@@ -923,18 +1188,49 @@
             .section-header h2 {
                 font-size: 2rem;
             }
+
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95vw;
+            }
+
+            .lightbox-image {
+                max-width: 95vw;
+                max-height: 75vh;
+            }
+
+            .lightbox-counter {
+                bottom: 10px;
+                font-size: 0.9rem;
+            }
         }
 
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 480px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -1039,18 +1335,18 @@
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
-                <div class="gallery-grid">
+                <div class="gallery-grid" data-gallery="construction">
                     <div class="gallery-item">
-                        <img src="construction-1.jpg" alt="Construction Project 1">
+                        <img src="assests/services/construction/projectshowcase.jpg" alt="Construction Project 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="construction-2.jpg" alt="Construction Project 2">
+                        <img src="assests/services/construction/roofing.jpg" alt="Construction Project 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="construction-3.jpg" alt="Construction Project 3">
+                        <img src="assests/services/construction/IMG-20260410-WA0044.jpg" alt="Construction Project 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="construction-4.jpg" alt="Construction Project 4">
+                        <img src="assests/services/construction/house show.jpg" alt="Construction Project 4">
                     </div>
                 </div>
             </div>
@@ -1068,7 +1364,7 @@
                 <div class="video-item reveal">
                     <div class="video-wrapper">
                         <video controls poster="construction-video-thumb-1.jpg">
-                            <source src="construction-video-1.mp4" type="video/mp4">
+                            <source src="assests/services/videos/video 2.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -1080,7 +1376,7 @@
                 <div class="video-item reveal">
                     <div class="video-wrapper">
                         <video controls poster="construction-video-thumb-2.jpg">
-                            <source src="construction-video-2.mp4" type="video/mp4">
+                            <source src="assests/services/videos/video 1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -1112,18 +1408,18 @@
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
-                <div class="gallery-grid">
+                <div class="gallery-grid" data-gallery="plumbing">
                     <div class="gallery-item">
-                        <img src="plumbing-1.jpg" alt="Plumbing Work 1">
+                        <img src="assests/services/Plumbing/plumber 1.jpeg" alt="Plumbing Work 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="plumbing-2.jpg" alt="Plumbing Work 2">
+                        <img src="assests/services/Plumbing/plumber 2.jpg" alt="Plumbing Work 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="plumbing-3.jpg" alt="Plumbing Work 3">
+                        <img src="assests/services/Plumbing/plumber 3.jpg" alt="Plumbing Work 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="plumbing-4.jpg" alt="Plumbing Work 4">
+                        <img src="assests/services/Plumbing/plumber 4.jpg" alt="Plumbing Work 4">
                     </div>
                 </div>
             </div>
@@ -1149,18 +1445,18 @@
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
-                <div class="gallery-grid">
+                <div class="gallery-grid" data-gallery="electrical">
                     <div class="gallery-item">
-                        <img src="electrical-1.jpg" alt="Electrical Work 1">
+                        <img src="assests/services/electrical/electrical 1.jpg" alt="Electrical Work 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="electrical-2.jpg" alt="Electrical Work 2">
+                        <img src="assests/services/electrical/electrical 2.jpg" alt="Electrical Work 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="electrical-3.jpg" alt="Electrical Work 3">
+                        <img src="assests/services/electrical/electrical 3.jpg" alt="Electrical Work 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="electrical-4.jpg" alt="Electrical Work 4">
+                        <img src="assests/services/electrical/electrical 1.jpg" alt="Electrical Work 4">
                     </div>
                 </div>
             </div>
@@ -1186,18 +1482,18 @@
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
-                <div class="gallery-grid">
+                <div class="gallery-grid" data-gallery="renovation">
                     <div class="gallery-item">
-                        <img src="renovation-1.jpg" alt="Renovation Project 1">
+                        <img src="assests/services/renovation/color.jpg" alt="Renovation Project 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="renovation-2.jpg" alt="Renovation Project 2">
+                        <img src="assests/services/renovation/bath.webp" alt="Renovation Project 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="renovation-3.jpg" alt="Renovation Project 3">
+                        <img src="assests/services/renovation/color.jpg" alt="Renovation Project 3">
                     </div>
                     <div class="gallery-item">
-                        <img src="renovation-4.jpg" alt="Renovation Project 4">
+                        <img src="assests/services/renovation/bath.webp" alt="Renovation Project 4">
                     </div>
                 </div>
             </div>
@@ -1223,80 +1519,18 @@
                         <i class="fab fa-whatsapp"></i> Get In Touch
                     </a>
                 </div>
-                <div class="gallery-grid">
+                <div class="gallery-grid" data-gallery="architectural">
                     <div class="gallery-item">
-                        <img src="architectural-1.jpg" alt="Architectural Drawing 1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="architectural-2.jpg" alt="Architectural Drawing 2">
+                        <img src="assests/services/construction/projectshowcase.jpg" alt="Architectural Drawing 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="architectural-3.jpg" alt="Architectural Drawing 3">
+                        <img src="assests/services/construction/roofing.jpg" alt="Architectural Drawing 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="architectural-4.jpg" alt="Architectural Drawing 4">
+                        <img src="assests/services/construction/IMG-20260410-WA0044.jpg" alt="Architectural Drawing 3">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filterable Gallery -->
-    <section class="filterable-gallery">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Project Gallery</h2>
-                <p>Browse through our completed projects</p>
-            </div>
-            <div class="filter-buttons reveal">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="construction">Construction</button>
-                <button class="filter-btn" data-filter="plumbing">Plumbing</button>
-                <button class="filter-btn" data-filter="electrical">Electrical</button>
-                <button class="filter-btn" data-filter="renovation">Renovation</button>
-                <button class="filter-btn" data-filter="architectural">Architectural</button>
-            </div>
-            <div class="gallery-items">
-                <div class="gallery-card" data-category="construction">
-                    <img src="construction-1.jpg" alt="Construction Project">
-                    <div class="gallery-card-overlay">
-                        <h3>Construction Project</h3>
-                        <p>Residential building</p>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="plumbing">
-                    <img src="plumbing-1.jpg" alt="Plumbing Work">
-                    <div class="gallery-card-overlay">
-                        <h3>Plumbing Installation</h3>
-                        <p>Modern bathroom setup</p>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="electrical">
-                    <img src="electrical-1.jpg" alt="Electrical Work">
-                    <div class="gallery-card-overlay">
-                        <h3>Electrical Installation</h3>
-                        <p>Commercial wiring</p>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="renovation">
-                    <img src="renovation-1.jpg" alt="Renovation Project">
-                    <div class="gallery-card-overlay">
-                        <h3>Kitchen Renovation</h3>
-                        <p>Complete remodel</p>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="architectural">
-                    <img src="architectural-1.jpg" alt="Architectural Drawing">
-                    <div class="gallery-card-overlay">
-                        <h3>Floor Plan Design</h3>
-                        <p>Modern home layout</p>
-                    </div>
-                </div>
-                <div class="gallery-card" data-category="construction">
-                    <img src="construction-2.jpg" alt="Construction Project">
-                    <div class="gallery-card-overlay">
-                        <h3>Commercial Building</h3>
-                        <p>Office complex</p>
+                    <div class="gallery-item">
+                        <img src="assests/services/construction/house show.jpg" alt="Architectural Drawing 4">
                     </div>
                 </div>
             </div>
@@ -1308,7 +1542,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Frequently Asked Questions</h2>
-                <p>Common questions about our services</p>
+                <p>Find answers to common questions</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item reveal">
@@ -1317,25 +1551,16 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We serve all areas in Uganda, with our main office located in Lutete, Gayaza Road, Kampala. We have completed projects across the country.</p>
+                        <p>We serve Kampala and surrounding areas in Uganda, including Gayaza, Wakiso, Mukono, and other nearby locations. Contact us to confirm if we cover your area.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3>Do you provide free quotes?</h3>
+                        <h3>How do I request a quote?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We offer free consultations and quotes. Simply contact us via WhatsApp or phone, and we'll schedule a site visit to provide you with an accurate estimate.</p>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h3>How long does a typical project take?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Project timelines vary based on scope and complexity. Small renovations may take 2-4 weeks, while full construction projects can take several months. We provide detailed timelines during consultation.</p>
+                        <p>You can request a free quote by contacting us via WhatsApp, phone, or email. We'll discuss your project requirements and provide a detailed estimate within 24-48 hours.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -1344,7 +1569,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, we offer 24/7 emergency services for plumbing and electrical issues. Contact us immediately for urgent assistance.</p>
+                        <p>Yes! We offer 24/7 emergency plumbing and electrical services. Contact our emergency hotline for immediate assistance with urgent issues.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -1353,105 +1578,109 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept various payment methods including bank transfers, mobile money, and cash. Payment terms are discussed and agreed upon before project commencement.</p>
+                        <p>We accept mobile money (MTN, Airtel), bank transfers, and cash payments. We also offer flexible payment plans for larger projects.</p>
                     </div>
                 </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h3>Do you provide warranties on your work?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we provide warranties on all our work. The warranty period depends on the type of service provided. We stand behind the quality of our craftsmanship.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Question Form -->
-            <div class="question-form reveal">
-                <h3>Still Have Questions?</h3>
-                <p>Send us your question directly via WhatsApp and we'll respond promptly!</p>
-                <form id="questionForm">
-                    <div class="form-group">
-                        <label for="userName">Your Name</label>
-                        <input type="text" id="userName" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="userQuestion">Your Question</label>
-                        <textarea id="userQuestion" placeholder="Type your question here..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fab fa-whatsapp"></i> Send via WhatsApp
-                    </button>
-                </form>
+                <!-- Question Form -->
+                <div class="question-form reveal">
+                    <h3>Have a Question?</h3>
+                    <p>Send us your question and we'll get back to you as soon as possible.</p>
+                    <form id="questionForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="question">Your Question</label>
+                            <textarea id="question" name="question" placeholder="Type your question here..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Contact us today for a free consultation and quote</p>
-        <a href="https://wa.me/256754181263" class="btn btn-primary" target="_blank">
-            <i class="fab fa-whatsapp"></i> Get In Touch
-        </a>
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today for a free consultation and quote!</p>
+            <a href="https://wa.me/256754181263" class="btn btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Get Free Quote
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About Abaro</h3>
-                <p>Your trusted partner for quality construction, plumbing, electrical, and renovation services in Uganda.</p>
+                <h3>About Abaro Construction</h3>
+                <p>Uganda's trusted construction partner delivering exceptional quality, innovative solutions, and unmatched value for money since 2018.</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="index.html">Home</a></p>
-                <p><a href="services.html">Services</a></p>
-                <p><a href="index.html#portfolio">Portfolio</a></p>
-                <p><a href="index.html#contact">Contact</a></p>
+                <h3>Our Services</h3>
+                <p><a href="#construction">Construction</a></p>
+                <p><a href="#plumbing">Plumbing</a></p>
+                <p><a href="#electrical">Electrical</a></p>
+                <p><a href="#renovation">Renovation</a></p>
+                <p><a href="#architectural">Architectural Drawing</a></p>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Lutete, Gayaza Road, Uganda</p>
+                <p><i class="fas fa-map-marker-alt"></i> Gayaza Road, Kampala</p>
                 <p><i class="fas fa-phone"></i> +256 754 181 263</p>
-                <p><i class="fas fa-envelope"></i> kuteesajoshua914@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Business Hours</h3>
-                <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+                <p><i class="fas fa-envelope"></i> info@abaroconstruction.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p id="copyrightText">&copy; 2024 Abaro Construction. All Rights Reserved.</p>
+            <p>&copy; 2024 Abaro Construction. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/256754181263" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img src="" alt="Full size image" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+        </div>
+    </div>
 
     <script>
         // Preloader
         window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
             setTimeout(() => {
-                document.querySelector('.preloader').classList.add('hidden');
+                preloader.classList.add('hidden');
             }, 500);
         });
 
-        // Dynamic Year
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentYear = new Date().getFullYear();
-            document.getElementById('copyrightText').innerHTML = `&copy; ${currentYear} Abaro Construction. All Rights Reserved.`;
-        });
-
-        // Navbar scroll
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -1467,6 +1696,7 @@
             mobileNav.classList.toggle('active');
         });
 
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -1474,92 +1704,211 @@
             });
         });
 
-        // Reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -100px 0px"
-        };
+        // Reveal on scroll animation
+        const revealElements = document.querySelectorAll('.reveal');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
                 }
             });
-        }, observerOptions);
+        };
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
 
         // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
-                const item = question.parentElement;
                 const isActive = item.classList.contains('active');
                 
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
                 });
-                
+
+                // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
                 }
             });
         });
 
-        // Filterable Gallery
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const filter = btn.getAttribute('data-filter');
-                const cards = document.querySelectorAll('.gallery-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
+        // Question Form - Send via WhatsApp
+        const questionForm = document.getElementById('questionForm');
+        
+        questionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const question = document.getElementById('question').value;
+            
+            const message = `Hi Abaro Construction,\n\nName: ${name}\nPhone: ${phone}\n\nQuestion: ${question}`;
+            const whatsappUrl = `https://wa.me/256754181263?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+            questionForm.reset();
+        });
+
+        // Enhanced Lightbox with Gallery Navigation
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Gallery items grouped by service section
+        const galleryGrids = document.querySelectorAll('.gallery-grid');
+
+        galleryGrids.forEach(grid => {
+            const items = grid.querySelectorAll('.gallery-item');
+            const galleryImages = Array.from(items).map(item => item.querySelector('img').src);
+
+            items.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentGallery = galleryImages;
+                    currentIndex = index;
+                    openLightbox();
                 });
             });
         });
 
-        // Question Form
-        document.getElementById('questionForm').addEventListener('submit', (e) => {
-            e.preventDefault();
+        function openLightbox() {
+            lightboxImage.src = currentGallery[currentIndex];
+            updateCounter();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateCounter() {
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            lightboxImage.style.opacity = '0';
+            lightboxImage.style.transform = 'scale(0.95)';
             
-            const name = document.getElementById('userName').value;
-            const question = document.getElementById('userQuestion').value;
+            setTimeout(() => {
+                lightboxImage.src = currentGallery[currentIndex];
+                updateCounter();
+                lightboxImage.style.opacity = '1';
+                lightboxImage.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            lightboxImage.style.opacity = '0';
+            lightboxImage.style.transform = 'scale(0.95)';
             
-            const message = `Hi Abaro Construction,%0A%0AMy name is ${encodeURIComponent(name)}.%0A%0AI have a question:%0A${encodeURIComponent(question)}%0A%0APlease respond when you can. Thank you!`;
-            
-            window.open(`https://wa.me/256754181263?text=${message}`, '_blank');
-            
-            document.getElementById('questionForm').reset();
+            setTimeout(() => {
+                lightboxImage.src = currentGallery[currentIndex];
+                updateCounter();
+                lightboxImage.style.opacity = '1';
+                lightboxImage.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevImage();
         });
 
-        // Highlight active section in nav
-        const sections = document.querySelectorAll('.service-detail');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextImage();
+        });
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    showPrevImage();
+                    break;
+                case 'ArrowRight':
+                    showNextImage();
+                    break;
+            }
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next image
+                    showNextImage();
+                } else {
+                    // Swipe right - previous image
+                    showPrevImage();
                 }
-            });
+            }
+        }
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
     </script>
-
 </body>
 </html>
